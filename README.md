@@ -27,6 +27,6 @@ TPOSupermercado de Programacion Concurrente
 
 ## ToDo List:
 - [ ] Repositor viene y deja productos.
-- [ ] Paso del tiempo en el supermercado.
-- [ ] Aplicar descuento a los productos en oferta cuando pasan por caja.
+- [x] Paso del tiempo en el supermercado.
+- [x] Aplicar descuento a los productos en oferta cuando pasan por caja.
 - [ ] Cambiar los productos de oferta cuando se dan las condiciones.
