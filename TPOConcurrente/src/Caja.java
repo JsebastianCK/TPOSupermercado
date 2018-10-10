@@ -32,5 +32,4 @@ public class Caja {
 			e.printStackTrace();
 		}
 	}
-	
 }
