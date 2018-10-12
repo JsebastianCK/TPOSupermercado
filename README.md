@@ -26,7 +26,7 @@ TPOSupermercado de Programacion Concurrente
 >Resolver maximizando la concurrencia entre cajas, evitando bloqueos e inconsistencia.
 
 ## ToDo List:
-- [ ] Repositor viene y deja productos.
-- [x] Paso del tiempo en el supermercado.
+- [x] Repositor viene y deja productos.
+- [ ] Paso del tiempo en el supermercado.
 - [x] Aplicar descuento a los productos en oferta cuando pasan por caja.
 - [ ] Cambiar los productos de oferta cuando se dan las condiciones.
