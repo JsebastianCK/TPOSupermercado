@@ -2,12 +2,12 @@
 public class Producto {
 	
 	private int id;
-	private int precio;
+	private double precio;
 	private int tiempoDeOferta;
 	private int stock;
 	private boolean oferta;
 	
-	public Producto(int id, int precio, int stock, boolean oferta){
+	public Producto(int id, double precio, int stock, boolean oferta){
 		this.id = id;
 		this.precio = precio;
 		this.stock = stock;
@@ -41,11 +41,11 @@ public class Producto {
 		this.id = id;
 	}
 
-	public int getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(int precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 

@@ -4,49 +4,27 @@ import java.util.TimerTask;
 
 public class Supermercado {
 	
-	private static int dia = 1;
-	
 	public static void main(String[] args) {
 		//El supermercado vende 15 articulos distintos.
 		Producto[] productos = new Producto[15];		
-		Caja[] cajas = new Caja[8];
+		Caja[] cajas = new Caja[3];
 		Timer timer = new Timer();
 		
-		//Se cargan los productos y las cajas.
+		//Se cargan los productos, las cajas y los clientes.
 		cargarProductos(productos);
 		cargarCajas(cajas);
+		cargarClientes(cajas, productos);
 		
-		mostrarSituacion(productos);
-		//Simula el paso de dias
-		System.out.println("---------------------DIA 1 / VaRaTiJa---------------------");
-		TimerTask pasoDia = new TimerTask() {
-		    @Override
-		    public void run() {
-		    	try {
-		    		System.out.println("Supermercado cerrado");  	
-		    		mostrarSituacion(productos);
-			    	Thread.sleep(3000);
-			    	dia++;
-			    	System.out.println("---------------------DIA " + dia + " / VaRaTiJa---------------------");
-		    	} catch(Exception e) {
-		    		e.printStackTrace();
-		    	}
-		    }
+		TimerTask dia = new TimerTask() {
+
+			@Override
+			public void run() {
+				
+			}
+			
 		};
 		
-		//Clientes
-		Cliente jorge = new Cliente("Jorge" , cajas , productos);
-		Cliente raul = new Cliente("Raul" , cajas , productos);
-		
-		Thread t1 = new Thread(jorge);
-		Thread t2 = new Thread(raul);
-		
-		//Inicio de los threads
-		t1.start();
-		t2.start();
-		
-		//Pasa un dia luego de 10 segs de ejecucion
-		timer.schedule(pasoDia , 10000 , 10000);
+		timer.schedule(dia, 10000, 10000);
 		
 	}
 	
@@ -72,6 +50,26 @@ public class Supermercado {
 		for(int i = 0; i < cajas.length; i++) {
 			cajas[i] = new Caja(i);
 		}
+	}
+	
+	public static void cargarClientes(Caja[] cajas , Producto[] productos) {
+		//Clientes
+		Cliente jorge = new Cliente("Jorge" , cajas , productos);
+		Cliente raul = new Cliente("Raul" , cajas , productos);
+		Cliente francisco = new Cliente("Francisco" , cajas , productos);
+		Cliente valentina = new Cliente("Valentina" , cajas , productos);
+		
+		//Threads
+		Thread t1 = new Thread(jorge);
+		Thread t2 = new Thread(raul);
+		Thread t3 = new Thread(francisco);
+		Thread t4 = new Thread(valentina);
+		
+		//Inicio de los threads
+		t1.start();
+		t2.start();
+		t3.start();
+		t4.start();
 	}
 	
 	//Esto esta para prueba

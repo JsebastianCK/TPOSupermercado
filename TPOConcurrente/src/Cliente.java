@@ -6,16 +6,27 @@ public class Cliente implements Runnable{
 	private Caja[] posiblesCajas;
 	private Producto[] carroDeCompra;
 	private Producto[] productosDelSuper;
+	private boolean yaCompro;
 	
 	public Cliente(String nombre, Caja[] posiblesCajas, Producto[] productosDelSuper) {
 		this.nombre = nombre;
 		this.posiblesCajas = posiblesCajas;
 		this.productosDelSuper = productosDelSuper;
+		this.yaCompro = false;
 	}
-
+	
 	public void run() {
-		this.llenarCarro();
-		this.comprar();
+		while(true) {
+			if(!this.yaCompro) {
+				this.llenarCarro();
+				this.comprar();
+				this.yaCompro = true;
+			}
+		}
+	}
+	
+	public void reset() {
+		this.yaCompro = false;
 	}
 	
 	public void llenarCarro() {
